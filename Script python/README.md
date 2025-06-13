@@ -15,11 +15,11 @@ Le script suivant assure :
 
 ## Fonctionnement
 
--Lorsqu'on lance le code, rentrer la fréquence centrale et le span pour régler l'analyseur de spectre
--lancer le scan grid lorsqu'on a le message
-```bash
-En attente de messages sur {USB_PORT}...
-```
+- Lorsqu'on lance le code, rentrer la fréquence centrale et le span pour régler l'analyseur de spectre
+- lancer le scan grid lorsqu'on a le message
+    ```bash
+    En attente de messages sur {USB_PORT}...
+    ```
 ## Possibilité de modifier les couleurs des échelles de l'affichage avec MatPlotLib
 
 Dans la ligne suivante,
@@ -27,5 +27,5 @@ Dans la ligne suivante,
 plt.imshow(amp_matrix, origin='lower', cmap='plasma', extent=[0, x_points, 0, y_points])
 ```
 il est possible de modifier les couleurs de l'échelle en changeant le paramètre `cmap`.
-Une documentation sur les échelles disponibles est disponible 
-('https://matplotlib.org/stable/users/explain/colors/colormaps.html')
+
+Voici une documentation sur les [échelles disponibles](https://matplotlib.org/stable/users/explain/colors/colormaps.html).
