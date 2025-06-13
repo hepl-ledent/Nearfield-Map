@@ -1,4 +1,4 @@
-# Guide de Connexion avec R&S VISA – Analyseur de Spectre FPC1000
+# Guide d'utilisation Nearfield Map
 
 **Auteurs** : Baes Pierre, Ledent Théo  
 **Projet** : Nearfield Map – HEPL  
