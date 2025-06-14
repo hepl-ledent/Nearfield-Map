@@ -22,10 +22,10 @@ Le script suivant assure :
     ```
 ## Possibilité de modifier les couleurs des échelles de l'affichage avec MatPlotLib
 
-Dans la ligne suivante,
+Dans la ligne ci dessous, il est possible de modifier les couleurs de l'échelle en changeant le paramètre `cmap`.
+    
+Voici une documentation sur les [échelles disponibles](https://matplotlib.org/stable/users/explain/colors/colormaps.html).
 ```bash
 plt.imshow(amp_matrix, origin='lower', cmap='plasma', extent=[0, x_points, 0, y_points])
 ```
-il est possible de modifier les couleurs de l'échelle en changeant le paramètre `cmap`.
 
-Voici une documentation sur les [échelles disponibles](https://matplotlib.org/stable/users/explain/colors/colormaps.html).
