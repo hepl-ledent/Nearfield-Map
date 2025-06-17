@@ -3,7 +3,10 @@
 **Auteurs** : Baes Pierre, Ledent Théo  
 **Projet** : Nearfield Map – HEPL  
 **Date** : Juin 2025
-![image](https://github.com/user-attachments/assets/a3677d3e-070b-4c7d-ac06-c2945cf4a437)
+
+
+![image](https://github.com/user-attachments/assets/8d0722dc-447e-4733-b89d-d5a16d418e89)
+
 
 ---
 ## Objectif
