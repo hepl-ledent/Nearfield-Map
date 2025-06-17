@@ -1,7 +1,6 @@
 import pyvisa
 import matplotlib.pyplot as plt
 import serial
-import time
 import numpy as np
 
 # === Configuration port série USB ===
@@ -11,10 +10,6 @@ BAUDRATE = 115200
 x_points = None
 y_points = None
 amp_matrix = None
-freq_matrix = None
-total_points = None
-mesure_count = 0
-
 
 # === Connexion à l'appareil de mesure ===
 rm = pyvisa.ResourceManager()
@@ -52,9 +47,7 @@ def decode_message(line):
         print(f"Erreur de décodage : {e} -> ligne brute : {line}")
         return None
 
-
-
-
+# === Boucle de gestion des messages ===
 with serial.Serial(USB_PORT, BAUDRATE, timeout=1) as ser:
     print(f"En attente de messages sur {USB_PORT}...")
 
@@ -72,9 +65,8 @@ with serial.Serial(USB_PORT, BAUDRATE, timeout=1) as ser:
         if label == "Size":
             x_points = x
             y_points = y
-            total_points = x_points * y_points
+
             amp_matrix = np.zeros((y_points, x_points))
-            freq_matrix = np.zeros((y_points, x_points))
             print(f"Taille de grille reçue : x={x_points}, y={y_points}")
 
         elif label == "Pos":
@@ -82,30 +74,16 @@ with serial.Serial(USB_PORT, BAUDRATE, timeout=1) as ser:
                 print("Erreur : matrice non initialisée. Attente du message Size.")
                 continue
 
-            i = x - 1
-            j = y - 1
+            if 0 <= x < x_points and 0 <= y < y_points:
 
-            if 0 <= i < x_points and 0 <= j < y_points:
-                if amp_matrix[j, i] != 0:
-                    print(f"(x={x}, y={y}) déjà mesuré. Ignoré.")
-                    continue
-
-                print(f"Mesure à la position ({i}, {j})...")
+                print(f"Mesure à la position ({x}, {y})...")
 
                 instrument.write("INIT;*WAI")
                 freq = float(instrument.query("CALC:MARK1:X?"))
                 amp = float(instrument.query("CALC:MARK1:Y?"))
-
-                freq_matrix[j, i] = freq
-                amp_matrix[j, i] = amp
+                amp_matrix[y, x] = amp
 
                 print(f"  → {freq / 1e6:.3f} MHz, {amp:.2f} dBm")
-
-                mesure_count += 1
-
-                if mesure_count >= total_points:
-                    print("Toutes les mesures sont complètes.")
-                    break
 
         elif label == "EndScan":
             print("Fin de scan reçue. Arrêt de la boucle.")
@@ -122,4 +100,3 @@ plt.xlabel('X')
 plt.ylabel('Y')
 plt.tight_layout()
 plt.show()
-
