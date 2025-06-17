@@ -16,8 +16,10 @@ Cela installe la bibliothèque nécessaire à la communication avec l’analyseu
    [R&S VISA – Rohde & Schwarz](https://www.rohde-schwarz.com/us/applications/r-s-visa-application-note_56280-148812.html)
 
 2. Avant de lancer le logiciel, vérifier que l'analyseur de spectre apparait bien dans l'onglet 'USB Test and Measurment Devices' dans le gestionnaire de périphérique.
-   Si il n'apparait pas, débrancher le câble USB. Rallumer l'analyseur de spectre. Rebrancher le câble USB
-   ![image](https://github.com/user-attachments/assets/c51bde63-db11-4e31-95c6-c3ebe187efce)
+   Si il n'apparait pas, débrancher le câble USB. Redémarrer l'analyseur de spectre. Rebrancher le câble USB.
+   
+   ![image](https://github.com/user-attachments/assets/0023ef6a-3f06-4f0a-8a19-4551f05e928b)
+
 
 
 
