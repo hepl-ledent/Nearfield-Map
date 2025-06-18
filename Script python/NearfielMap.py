@@ -4,7 +4,7 @@ import serial
 import numpy as np
 
 # === Configuration port série USB ===
-USB_PORT = 'COM4'  # À adapter selon ton système
+USB_PORT = 'COM4'  # À adapter selon le système
 BAUDRATE = 115200
 
 x_points = None
