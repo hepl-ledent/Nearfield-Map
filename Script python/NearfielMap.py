@@ -85,7 +85,7 @@ with serial.Serial(USB_PORT, BAUDRATE, timeout=1) as ser:
 
                 print(f"  → {freq / 1e6:.3f} MHz, {amp:.2f} dBm")
 
-        elif label == "EndScan":
+        elif label == "endScan":
             print("Fin de scan reçue. Arrêt de la boucle.")
             break
 
